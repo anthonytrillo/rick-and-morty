@@ -1,0 +1,68 @@
+.charactersInner {
+  grid-template-columns: 1fr 2fr;
+  grid-gap: 1.5rem;
+  grid-row-gap: 1.5em;
+  display: grid;
+}
+
+.charactersCard {
+  text-decoration: none;
+  box-shadow: 8px 14px 38px rgba(39,44,49,.06), 1px 3px 8px rgba(39,44,49,.03);
+  border-radius: 5px;
+  margin: 0 0 20px 0;
+  display: block;
+  width: 100%;
+  animation-duration: 2s;
+  animation-name: fade;
+}
+
+.charactersCard img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px 5px 0 0;
+}
+
+.charactersCard h2 {
+  font-size: 18px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.charactersCard h3 {
+  font-size: 18px;
+  font-weight: 400;
+  text-align: left;
+  margin: 20px;
+}
+
+@media (max-width: 768px) {
+  .charactersInner {
+    grid-template-columns: 1fr;
+    grid-gap: 1rem;
+  }
+
+  .charactersCard h2 {
+    font-size: 16px;
+  }
+
+  .charactersCard h3 {
+    font-size: 16px;
+    margin: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .charactersCard {
+    box-shadow: 4px 8px 20px rgba(39,44,49,.06), 1px 2px 4px rgba(39,44,49,.03);
+    margin: 0 0 10px 0;
+  }
+
+  .charactersCard h2 {
+    font-size: 16px;
+  }
+
+  .charactersCard h3 {
+    font-size: 16px;
+    margin: 5px;
+  }
+}

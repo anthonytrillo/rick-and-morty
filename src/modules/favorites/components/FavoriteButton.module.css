@@ -1,0 +1,46 @@
+.favoriteButton {
+  background-color: #026C86;
+  color: #fff;
+  border: 2px solid #026C86;
+  border-radius: 5px;
+  padding: 0.3rem 0.5rem;
+  margin: 0px 10px 10px 10px;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.favoriteButton:hover {
+  background-color: #014f60;
+  border-color: #014f60;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.favoriteButton:active {
+  transform: scale(0.98);
+}
+
+.favoriteButton:focus {
+  outline: none;
+  border-color: #ff8c00;
+  box-shadow: 0 0 5px rgba(255, 140, 0, 0.5);
+}
+
+/* Estilo para cuando el personaje ya está en favoritos */
+.favorited {
+  background-color: #ff8c00;
+  border-color: #ff8c00;
+}
+
+.favorited:hover {
+  background-color: #e77c00;
+  border-color: #e77b00b9;
+}
+
+.favorited:active {
+  background-color: #d16b00;
+  border-color: #d16b00;
+}
