@@ -1,5 +1,5 @@
 import styles from "./Pagination.module.css";
-import { IPaginationProps } from "../interfases/pagination";
+import { IPaginationProps } from "@/interfases/pagination";
 
 const Pagination = ({ currentPage, totalPages, onPageChange }: IPaginationProps) => {
   const handlePrevious = () => {

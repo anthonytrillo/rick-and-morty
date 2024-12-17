@@ -1,7 +1,7 @@
-import { useFavorites } from "../hooks/useFavorites";
-import { ICharacter } from "../../../interfases/character";
+import { useFavorites } from "@/modules/favorites/hooks/useFavorites";
+import { ICharacter } from "@/interfases/character";
 import styles from "./FavoriteButton.module.css";
-import { useToast } from "../../../hooks/useToast";
+import { useToast } from "@/hooks/useToast";
 
 const FavoriteButton = ({ character }: { character: ICharacter }) => {
   const { state, dispatch } = useFavorites();

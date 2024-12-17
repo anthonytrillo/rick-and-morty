@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import { useCharacters } from "../hooks/useCharacters";
-import { useFilters } from "../hooks/useFilters";
+import { useCharacters } from "@/modules/characters/hooks/useCharacters";
+import { useFilters } from "@/modules/characters/hooks/useFilters";
 import styles from "./Characters.module.css";
-import CharacterCard from "../components/CharacterCard";
-import Pagination from "../../../components/Pagination";
+import CharacterCard from "@/modules/characters/components/CharacterCard";
+import Pagination from "@/components/Pagination";
 
 const Characters = () => {
   const [currentPage, setCurrentPage] = useState(1);

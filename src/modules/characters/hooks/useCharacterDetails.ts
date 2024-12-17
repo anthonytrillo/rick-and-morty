@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { fetchCharacterById } from '../../../services/Characters.service';
-import { ICharacterDetails } from '../../../interfases/character';
+import { fetchCharacterById } from '@/services/Characters.service';
+import { ICharacterDetails } from '@/interfases/character';
 
 export const useCharacterDetails = () => {
   const { id } = useParams<{ id: string }>();

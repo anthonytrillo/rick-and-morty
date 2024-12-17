@@ -1,5 +1,5 @@
 import styles from "./FilterBar.module.css";
-import { useFilters } from "../hooks/useFilters";
+import { useFilters } from "@/modules/characters/hooks/useFilters";
 
 const FilterBar = () => {
   const { filters, setFilter } = useFilters();

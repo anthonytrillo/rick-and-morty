@@ -1,4 +1,4 @@
-import { useCharacterDetails } from "../hooks/useCharacterDetails";
+import { useCharacterDetails } from "@/modules/characters/hooks/useCharacterDetails";
 import styles from "./CharacterDetails.module.css";
 
 const CharacterDetails = () => {
