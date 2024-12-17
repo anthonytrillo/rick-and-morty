@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import { ICharacter } from "../../../interfases/character";
+import { ICharacter } from "@/interfases/character";
 import styles from "./CharacterCard.module.css";
-import FavoriteButton from "../../favorites/components/FavoriteButton";
+import FavoriteButton from "@/modules/favorites/components/FavoriteButton";
 
 const CharacterCard = ({ character }: { character: ICharacter }) => {
   return (

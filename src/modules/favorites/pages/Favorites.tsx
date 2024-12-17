@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import { useFavorites } from "../hooks/useFavorites";
-import { useToast } from "../../../hooks/useToast";
-import { ICharacter } from "../../../interfases/character";
+import { useFavorites } from "@/modules/favorites/hooks/useFavorites";
+import { useToast } from "@/hooks/useToast";
+import { ICharacter } from "@/interfases/character";
 import styles from "./Favorites.module.css";
 
 const Favorites = () => {

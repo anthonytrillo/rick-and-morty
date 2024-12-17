@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { fetchCharacters } from "../../../services/Characters.service";
-import { IFilterState } from "../../../interfases/filters";
+import { fetchCharacters } from "@/services/Characters.service";
+import { IFilterState } from "@/interfases/filters";
 
 export const useCharacters = (currentPage: number, filters: IFilterState) => {
   const [characters, setCharacters] = useState([]);
