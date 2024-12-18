@@ -3,6 +3,8 @@ import FavoriteButton from "../components/FavoriteButton";
 import { useFavorites } from "../hooks/useFavorites";
 import { useToast } from "../../../hooks/useToast";
 import { ICharacter } from "../../../interfases/character";
+import { LanguageProvider } from "@/context/LanguageContext";
+import { MemoryRouter } from "react-router-dom";
 
 jest.mock("../hooks/useFavorites");
 jest.mock("../../../hooks/useToast");
@@ -37,9 +39,15 @@ describe("Componente FavoriteButton", () => {
   });
 
   test("Muestra el botón con el texto 'Agregar a favoritos' cuando el personaje no es un favorito", () => {
-    render(<FavoriteButton character={mockCharacter} />);
+    render(
+      <LanguageProvider>
+        <MemoryRouter>
+          <FavoriteButton character={mockCharacter} />
+        </MemoryRouter>
+      </LanguageProvider>
+    );
 
-    const button = screen.getByRole("button", { name: /Agregar a favoritos/i });
+    const button = screen.getByRole("button", { name: /Add to favorites/i });
     expect(button).toBeInTheDocument();
   });
 
@@ -49,23 +57,35 @@ describe("Componente FavoriteButton", () => {
       dispatch: mockDispatch,
     });
 
-    render(<FavoriteButton character={mockCharacter} />);
+    render(
+      <LanguageProvider>
+        <MemoryRouter>
+          <FavoriteButton character={mockCharacter} />
+        </MemoryRouter>
+      </LanguageProvider>
+    );
 
-    const button = screen.getByRole("button", { name: /Eliminar de favoritos/i });
+    const button = screen.getByRole("button", { name: /Remove from favorites/i });
     expect(button).toBeInTheDocument();
   });
 
   test("Llama a dispatch y notifySuccess al añadir a favoritos", () => {
-    render(<FavoriteButton character={mockCharacter} />);
+    render(
+      <LanguageProvider>
+        <MemoryRouter>
+          <FavoriteButton character={mockCharacter} />
+        </MemoryRouter>
+      </LanguageProvider>
+    );
 
-    const button = screen.getByRole("button", { name: /Agregar a favoritos/i });
+    const button = screen.getByRole("button", { name: /Add to favorites/i });
     fireEvent.click(button);
 
     expect(mockDispatch).toHaveBeenCalledWith({
       type: "ADD_FAVORITE",
       payload: mockCharacter,
     });
-    expect(mockNotifySuccess).toHaveBeenCalledWith("Personaje agregado a favoritos.");
+    expect(mockNotifySuccess).toHaveBeenCalledWith("Character added to favorites.");
   });
 
   test("Llama a dispatch y notifyInfo cuando se elimina de favoritos", () => {
@@ -74,15 +94,21 @@ describe("Componente FavoriteButton", () => {
       dispatch: mockDispatch,
     });
 
-    render(<FavoriteButton character={mockCharacter} />);
+    render(
+      <LanguageProvider>
+        <MemoryRouter>
+          <FavoriteButton character={mockCharacter} />
+        </MemoryRouter>
+      </LanguageProvider>
+    );
 
-    const button = screen.getByRole("button", { name: /Eliminar de favoritos/i });
+    const button = screen.getByRole("button", { name: /Remove from favorites/i });
     fireEvent.click(button);
 
     expect(mockDispatch).toHaveBeenCalledWith({
       type: "REMOVE_FAVORITE",
       payload: mockCharacter,
     });
-    expect(mockNotifyInfo).toHaveBeenCalledWith("Personaje quitado de favoritos.");
+    expect(mockNotifyInfo).toHaveBeenCalledWith("Character removed from favorites.");
   });
 });
