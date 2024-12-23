@@ -1,17 +1,10 @@
-import { render, screen } from "@testing-library/react";
-import { MemoryRouter } from "react-router-dom";
-import { LanguageProvider } from "@/context/LanguageContext";
+import { screen } from "@testing-library/react";
 import Header from "../Header";
+import renderWithContexts from "@/tests/helpers/RenderWithContexts";
 
 describe("Componente Header", () => {
   test("Devuelve el título principal con el nombre correcto", () => {
-    render(
-      <LanguageProvider>
-        <MemoryRouter>
-          <Header />
-        </MemoryRouter>
-      </LanguageProvider>
-    );
+    renderWithContexts(<Header />);
 
     // Verifica que el título principal este presente
     const titleElement = screen.getByRole("heading", { level: 1, name: /rick and morty/i });
@@ -24,13 +17,7 @@ describe("Componente Header", () => {
   });
 
   test("Devuelve el enlace a favoritos", () => {
-    render(
-      <LanguageProvider>
-        <MemoryRouter>
-          <Header />
-        </MemoryRouter>
-      </LanguageProvider>
-    );
+    renderWithContexts(<Header />);
 
     // Verifica que el enlace a favoritos este presente
     const favoritesLink = screen.getByRole("link", { name: /favorites/i });
