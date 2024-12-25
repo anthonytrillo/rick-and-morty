@@ -1,8 +1,7 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import { screen, fireEvent } from "@testing-library/react";
 import FilterBar from "../components/FilterBar";
 import { useFilters } from "../hooks/useFilters";
-import { MemoryRouter } from "react-router-dom";
-import { LanguageProvider } from "@/context/LanguageContext";
+import renderWithContexts from "@/tests/helpers/RenderWithContexts";
 
 jest.mock("../hooks/useFilters");
 
@@ -26,13 +25,7 @@ describe("Componente FilterBar", () => {
   });
 
   test("Muestra los campos input y select", () => {
-    render(
-      <LanguageProvider>
-        <MemoryRouter>
-          <FilterBar />
-        </MemoryRouter>
-      </LanguageProvider>
-    );
+    renderWithContexts(<FilterBar />);
 
     // Verifica que los campos de filtro se renderizan correctamente
     expect(screen.getByPlaceholderText(/Search by name/i)).toBeInTheDocument();
@@ -41,13 +34,7 @@ describe("Componente FilterBar", () => {
   });
 
   test("Llama a setFilter cuando cambia el nombre de la entrada", () => {
-    render(
-      <LanguageProvider>
-        <MemoryRouter>
-          <FilterBar />
-        </MemoryRouter>
-      </LanguageProvider>
-    );
+    renderWithContexts(<FilterBar />);
 
     const nameInput = screen.getByPlaceholderText(/Search by name/i);
 
@@ -59,13 +46,7 @@ describe("Componente FilterBar", () => {
   });
 
   test("Llama a setFilter cuando cambia el select de estados", () => {
-    render(
-      <LanguageProvider>
-        <MemoryRouter>
-          <FilterBar />
-        </MemoryRouter>
-      </LanguageProvider>
-    );
+    renderWithContexts(<FilterBar />);
 
     const statusSelect = screen.getByText(/status/i).closest("select");
 
@@ -77,13 +58,7 @@ describe("Componente FilterBar", () => {
   });
 
   test("Llama a setFilters cuando cambia el select de especies", () => {
-    render(
-      <LanguageProvider>
-        <MemoryRouter>
-          <FilterBar />
-        </MemoryRouter>
-      </LanguageProvider>
-    );
+    renderWithContexts(<FilterBar />);
 
     const speciesSelect = screen.getByText(/species/i).closest("select");
 
@@ -95,13 +70,7 @@ describe("Componente FilterBar", () => {
   });
 
   test("Muestra los valores iniciales correctos", () => {
-    render(
-      <LanguageProvider>
-        <MemoryRouter>
-          <FilterBar />
-        </MemoryRouter>
-      </LanguageProvider>
-    );
+    renderWithContexts(<FilterBar />);
 
     // Verifica que los valores iniciales sean los definidos en `mockFilters`
     expect(screen.getByPlaceholderText(/Search by name/i)).toHaveValue("");
